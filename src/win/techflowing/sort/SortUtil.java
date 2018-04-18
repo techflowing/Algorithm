@@ -69,10 +69,16 @@ public class SortUtil {
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i < 100; i++) {
-            int[] arr = SortUtil.buildArray(100);
-            InsertSort.sort(arr);
-            System.out.println(SortUtil.verify(arr));
+        boolean result = true;
+        float count = 100;
+        int arrSize = 10000;
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < count; i++) {
+            int[] arr = SortUtil.buildArray(arrSize);
+            MergeSort.sort(arr);
+            result = result & verify(arr);
         }
+        System.out.println("验证结果：" + result);
+        System.out.println("平均耗时(毫秒)：" + (System.currentTimeMillis() - startTime) / count);
     }
 }
