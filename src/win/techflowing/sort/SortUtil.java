@@ -75,8 +75,10 @@ public class SortUtil {
         return new Class[]{BubbleSort.class,
                 InsertSort.class,
                 MergeSort.class,
-                QuickSort.class,
-                SelectSort.class};
+                QuickSortSentry.class,
+                QuickSortHole.class,
+                SelectSort.class,
+                ShellSort.class};
     }
 
     /**
@@ -92,14 +94,16 @@ public class SortUtil {
         float count = 100;
         // 数组大小
         int arrSize = 10000;
+        // 数组元素最大值
+        int limit = 100000;
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < count; i++) {
-            int[] arr = SortUtil.buildArray(arrSize);
+            int[] arr = SortUtil.buildArray(limit, arrSize);
             sortClass.sort(arr);
             result = result & verify(arr);
         }
         System.out.print(sortClass.getName() + ",验证结果：" + result);
-        System.out.println(" ,平均耗时(毫秒)：" + (System.currentTimeMillis() - startTime) / count);
+        System.out.println(",平均耗时(毫秒)：" + (System.currentTimeMillis() - startTime) / count);
     }
 
     public static void main(String[] args) {
@@ -109,6 +113,7 @@ public class SortUtil {
                 sort = (Sort) Class.forName(sortClass.getName()).newInstance();
             } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
                 e.printStackTrace();
+                System.out.println("排序类实例化失败");
             }
             if (sort != null) {
                 test(sort);

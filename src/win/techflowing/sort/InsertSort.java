@@ -17,7 +17,7 @@ public class InsertSort implements Sort {
             // 寻找插入的位置，从已排序序列的尾部开始逆序比较，
             // 只要比待插入的数据大，那就向后移动，直到不大于该数据，
             // 此时空出来的位置就放入待插入数据
-            while (position > 0 && arr[position - 1] > current) {
+            while (position - 1 > 0 && arr[position - 1] > current) {
                 arr[position] = arr[position - 1];
                 position--;
             }
