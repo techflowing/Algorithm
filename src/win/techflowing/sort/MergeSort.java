@@ -3,7 +3,7 @@ package win.techflowing.sort;
 /**
  * 归并排序，复杂度为O(n*log2(n)）
  */
-public class MergeSort {
+public class MergeSort implements Sort {
     /**
      * 按中点切割表，划分成左右两个子表，再继续对左右两个子表分别进行划分，
      * 直到无法划分为止，然后两两合并
@@ -11,7 +11,8 @@ public class MergeSort {
      * 1、划分半子表
      * 2、合并半子表
      */
-    public static void sort(int[] arr) {
+    @Override
+    public void sort(int[] arr) {
         mergeSort(arr, 0, arr.length - 1);
     }
 
@@ -22,7 +23,7 @@ public class MergeSort {
      * @param left  数组起始下标
      * @param right 数组终止下标
      */
-    private static void mergeSort(int[] arr, int left, int right) {
+    private void mergeSort(int[] arr, int left, int right) {
         if (left < right) {
             int mid = (left + right) / 2;
             mergeSort(arr, left, mid);
@@ -39,7 +40,7 @@ public class MergeSort {
      * @param mid   数组中点下标
      * @param right 数组终止下标
      */
-    private static void merge(int[] arr, int left, int mid, int right) {
+    private void merge(int[] arr, int left, int mid, int right) {
         int leftIndex;
         int rightIndex;
         // 辅助数组,暂存合并的结果
@@ -67,5 +68,10 @@ public class MergeSort {
         for (int i = 0; i < tempArr.length; i++) {
             arr[left + i] = tempArr[i];
         }
+    }
+
+    @Override
+    public String getName() {
+        return "归并排序";
     }
 }

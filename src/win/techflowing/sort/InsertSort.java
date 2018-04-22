@@ -3,12 +3,13 @@ package win.techflowing.sort;
 /**
  * 插入排序，复杂度为 O(n^2)
  */
-public class InsertSort {
+public class InsertSort implements Sort {
     /**
      * 通过比较当前元素和其之前已排好序的元素的大小，
      * 找到合适的位置插入，并把插入位置后的元素往后移动
      */
-    public static void sort(int[] arr) {
+    @Override
+    public void sort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             // 当前需要插入的元素
             int current = arr[i];
@@ -22,5 +23,10 @@ public class InsertSort {
             }
             arr[position] = current;
         }
+    }
+
+    @Override
+    public String getName() {
+        return "插入排序";
     }
 }
