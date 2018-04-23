@@ -1,7 +1,7 @@
 package win.techflowing.sort;
 
 /**
- * 快速排序，复杂度为O(n*log2(n)）
+ * 快速排序，复杂度为 O(n*log2(n)）
  */
 public class QuickSortHole implements Sort {
 
