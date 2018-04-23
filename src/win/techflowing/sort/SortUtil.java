@@ -78,7 +78,9 @@ public class SortUtil {
                 QuickSortSentry.class,
                 QuickSortHole.class,
                 SelectSort.class,
-                ShellSort.class};
+                ShellSort.class,
+                RadixSort.class,
+                CountSort.class};
     }
 
     /**

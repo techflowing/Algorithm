@@ -23,7 +23,7 @@ public class ShellSort implements Sort {
                 int current = arr[i];
                 int position = i;
                 // 一次插入
-                while (position - gap > 0 && arr[position - gap] > current) {
+                while (position - gap >= 0 && arr[position - gap] > current) {
                     arr[position] = arr[position - gap];
                     position = position - gap;
                 }
